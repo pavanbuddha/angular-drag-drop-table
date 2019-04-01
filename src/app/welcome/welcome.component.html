@@ -1,0 +1,50 @@
+<div class="container">
+<div class="row">
+ <div class="col"> 
+   <h2>Table 1</h2>
+
+<table class="table" cdkDropList
+    #table1List="cdkDropList"
+    [cdkDropListData]="table1"
+    [cdkDropListConnectedTo]="[table2List]"
+    (cdkDropListDropped)="drop($event)">
+    <tr>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Email</th>
+      <th>Phone</th>
+    </tr>
+    <tr *ngFor="let item of table1" cdkDrag  [routerLink]="['user',item.id]">
+      <td>{{item.firstName}}</td>
+      <td>{{item.lastName}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.phone}}</td>
+    </tr>
+</table>
+</div>
+<div class="col"> 
+  <h2>Table 2</h2>
+
+<table class="table" cdkDropList
+    #table2List="cdkDropList"
+    [cdkDropListData]="table2"
+    [cdkDropListConnectedTo]="[table1List]"
+    (cdkDropListDropped)="drop($event)">
+    <tr>
+      <th>FirstName</th>
+      <th>LastName</th>
+      <th>Email</th>
+      <th>Phone</th>
+    </tr>
+    <tr *ngFor="let item of table2" cdkDrag  [routerLink]="['user',item.id]">
+      <td>{{item.firstName}}</td>
+      <td>{{item.lastName}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.phone}}</td>
+    </tr>
+</table>
+</div>
+</div>
+
+</div>
+
