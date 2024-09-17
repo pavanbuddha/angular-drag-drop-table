@@ -27,6 +27,6 @@ jobs:
     - name: "Deploy"
       shell: powershell
       run: |
-        echo "$DB_NAME"
+        echo $env:DB_NAME
       env:
         DB_NAME: ${{ vars.DB_NAME }}
