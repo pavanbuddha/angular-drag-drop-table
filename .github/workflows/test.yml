@@ -6,7 +6,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     outputs:
       envName: ${{ steps.build.outputs.envName }}
     steps:
@@ -17,7 +17,7 @@ jobs:
         echo "envName=DEV_DIG" >> "$env:GITHUB_OUTPUT"
 
   deployment:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
     environment: ${{ needs.build.outputs.envName }}
     steps:
