@@ -7,6 +7,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      envName: ${{ steps.build.outputs.envName }}
     steps:
     - name: "build"
       shell: powershell
@@ -17,7 +19,7 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     needs: build
-    environment: ${{ steps.build.outputs.envName }}
+    environment: ${{ needs.build.outputs.envName }}
     steps:
     - name: "Deploy"
       shell: powershell
