@@ -18,11 +18,11 @@ jobs:
       run: |
         echo "test"
         echo "envName=DEV_DIG" >> "$env:GITHUB_OUTPUT"
-
+# ${{ needs.build.outputs.envName }}
   deployment:
     runs-on: windows-latest
     needs: build
-    environment: ${{ needs.build.outputs.envName }}
+    environment: DEV_DIG
     steps:
     - name: "Deploy"
       shell: powershell
