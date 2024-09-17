@@ -10,10 +10,10 @@ jobs:
     outputs:
       envName: ${{ steps.build2.outputs.envName }}
     steps:
-    - name: "build"
+    - name: "build2"
       shell: powershell
       run: |
-        echo "test"2
+        echo "test"
         echo "envName=DEV_DIG" >> "$env:GITHUB_OUTPUT"
 # 
   deployment:
