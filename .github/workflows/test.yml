@@ -8,12 +8,12 @@ jobs:
   build:
     runs-on: windows-latest
     outputs:
-      envName: ${{ steps.build.outputs.envName }}
+      envName: ${{ steps.build2.outputs.envName }}
     steps:
     - name: "build"
       shell: powershell
       run: |
-        echo "test"
+        echo "test"2
         echo "envName=DEV_DIG" >> "$env:GITHUB_OUTPUT"
 # 
   deployment:
