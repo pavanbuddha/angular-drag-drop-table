@@ -1,0 +1,25 @@
+on:
+  push:
+    branches: 
+      - develop/*/*
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: "build"
+      shell: powershell
+      run: |
+        echo "test"
+        echo "envName=DEV_DIG" >> "$env:GITHUB_OUTPUT"
+
+  deployment:
+    runs-on: ubuntu-latest
+    needs: build
+    environment: ${{ steps.build.outputs.envName }}
+    steps:
+    - name: "Deploy"
+      shell: powershell
+      run: |
+        echo "${{vars.DB_NAME}}"
