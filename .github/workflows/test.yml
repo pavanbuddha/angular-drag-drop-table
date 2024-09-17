@@ -15,6 +15,7 @@ jobs:
       run: |
         echo "test"
         echo "envName=devv" >> "$env:GITHUB_OUTPUT"
+        echo "$env:GITHUB_OUTPUT"
     - name: "build3"
       shell: powershell
       run: |
@@ -23,7 +24,7 @@ jobs:
 # 
   deployment:
     runs-on: windows-latest
-    needs: build
+    needs: [ build ]
     environment: ${{ needs.build.outputs.envName }}
     steps:
     - name: "Deploy"
