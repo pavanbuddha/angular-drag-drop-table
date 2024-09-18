@@ -11,6 +11,7 @@ jobs:
       envName: ${{ steps.build2.outputs.envName }}
     steps:
     - name: "build2"
+      id: build2
       shell: powershell
       run: |
         echo "test"
