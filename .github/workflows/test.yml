@@ -15,7 +15,7 @@ jobs:
       shell: powershell
       run: |
         echo "test"
-        echo "envName=devv" >> "$env:GITHUB_OUTPUT"
+        echo "envName=DEV_DIG" >> "$env:GITHUB_OUTPUT"
         Get-Content "$env:GITHUB_OUTPUT"
     - name: "build3"
       shell: powershell
